@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { useScrollReveal } from "../lib/scroll-reveal";
 
 function NotFoundComponent() {
   return (
@@ -111,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="no-js">
       <head>
         <HeadContent />
       </head>
@@ -125,6 +126,13 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    document.documentElement.classList.remove("no-js");
+  }, []);
+
+  useScrollReveal(router.state.location.pathname);
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -197,7 +197,7 @@ function Index() {
               src="/images/guest-khusanov.jpg"
               alt="Абдукодир Хусанов в кресле барбершопа Barberium"
               loading="lazy"
-              className="h-[480px] w-full object-cover object-top sm:h-[560px]"
+              className="h-[480px] w-full object-cover object-[center_35%] sm:h-[560px]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
             <GlassCard className="absolute inset-x-4 bottom-4 p-6 sm:inset-x-8 sm:bottom-8 sm:max-w-md sm:p-8">
